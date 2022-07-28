@@ -23,7 +23,7 @@ function App() {
     <div>
       <Header />
       <SearchBar dataList={dataList} setDataList={setDataList} keepData={keepData} />
-      <RandomButton />
+      <RandomButton dataList={dataList} setDataList={setDataList} />
       <PlaneteersContainer dataList={dataList} setDataList={setDataList} />
     </div>
   );
