@@ -1,22 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Planeteer() {
+function Planeteer({ name, fromUSA, born, bio, quote, pictureUrl, twitter} ) {
+
+  const [isClicked, setIsClicked] = useState(true)
+
+  const locationRender = () => {
+    return (fromUSA ? 'USA-based' : 'Working overseas')
+  }
+
+  const handleImageClick = () => {
+    console.log('Image Click Happening')
+    setIsClicked(!isClicked)
+  }
+
+  const textRender = () => {
+    return (isClicked ? bio : quote)
+  }
+
+
+
   return (
     <li className="cards__item">
       <div className="card">
-        <img
-          src={"RENDER IMAGE"}
-          alt={"RENDER PERSON NAME"}
+        <img onClick={handleImageClick}
+          src={pictureUrl}
+          alt={name}
           className="card__image"
         />
         <div className="card__content">
-          <div className="card__title">{"RENDER NAME"}</div>
-          <p className="card__text">{"CONDITIONALLY RENDER BIO OR QUOTE"}</p>
+          <div className="card__title">{name}</div>
+          {/* CONDITIONALLY RENDER BIO OR QUOTE UNDER THIS LINE */}
+          <p className="card__text">{textRender()}</p>
           <div className="card__detail">
-            <p>{"RENDER TWITTER HANDLE"}</p>
+            {/* What about the person who doesn't have a twitter? */}
+            <p>{twitter}</p>
+            {/* In the p tag below conditionally render whether the person is USA-Based or working overseas */}
             <p>
               {
-                "CONDITIONALLY RENDER WHETHER THE PERSON IS USA-BASED OR WORKING OVERSEAS"
+                locationRender()
               }
             </p>
           </div>

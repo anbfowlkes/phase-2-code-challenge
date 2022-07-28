@@ -4,7 +4,7 @@ import { getRandomPlaneteer } from "../data/planeteers";
 function RandomButton() {
   function handleClick() {
     const randomPlaneteer = getRandomPlaneteer();
-    console.log("For the advanced deliverables", randomPlaneteer);
+    // console.log("For the advanced deliverables", randomPlaneteer);
   }
 
   return (

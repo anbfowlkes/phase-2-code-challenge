@@ -1,10 +1,22 @@
 import React from "react";
 import Planeteer from "./Planeteer";
 
-function PlaneteersContainer() {
+function PlaneteersContainer( {dataList, setDataList} ) {
   return (
     <ul className="cards">
-      {/* render a list of <Planeteer> components in here */}
+      {dataList.map((item) => {
+        return (
+        <Planeteer 
+        name={item.name}
+        fromUSA={item.fromUSA}
+        born={item.born}
+        bio={item.bio}
+        quote={item.quote}
+        pictureUrl={item.pictureUrl}
+        twitter={item.twitter}
+        key={item.id} />
+        )
+      })}
     </ul>
   );
 }
